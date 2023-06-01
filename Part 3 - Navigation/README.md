@@ -198,11 +198,11 @@ Now that we have our details page in place, we need to register it for routing. 
 1. Finally, we must inject the view model into our `DetailsPage`. Open the code behind for the page in `DetailsPage.xaml.cs` and change the constructor to the following:
 
     ```csharp
-	public DetailsPage(MonkeyDetailsViewModel viewModel)
-	{
-		InitializeComponent();
-		BindingContext = viewModel;
-	}
+	  public DetailsPage(MonkeyDetailsViewModel viewModel)
+	 {
+		 InitializeComponent();
+		 BindingContext = viewModel;
+	 }
     ```
 
 ### Create DetailsPage.xaml UI
