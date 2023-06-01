@@ -2,13 +2,16 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MonkeyFinder.View.MainPage"
     xmlns:model="clr-namespace:MonkeyFinder.Model"
     xmlns:viewmodel="clr-namespace:MonkeyFinder.ViewModel"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     x:DataType="viewmodel:MonkeysViewModel"
-    Title="{Binding Title}">
+    Title="{Binding Title}"
+    ios:Page.UseSafeArea="True"
+    x:Class="MonkeyFinder.View.MainPage"
+    >
 
-   <Grid
+    <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
@@ -42,6 +45,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+       
        <Button Text="Get Monkeys" 
                Command="{Binding GetMonkeysCommand}"
                IsEnabled="{Binding IsNotBusy}"
@@ -49,6 +53,15 @@
                Grid.Column="0"
                Style="{StaticResource ButtonOutline}"
                Margin="8"/>
+       
+       <Button Text="Find Closest" 
+               Command="{Binding GetClosestMonkeyCommand}"
+               IsEnabled="{Binding IsNotBusy}"
+               Grid.Row="1"
+               Grid.Column="1"
+               Style="{StaticResource ButtonOutline}"
+               Margin="8"/>
+       
        <ActivityIndicator IsVisible="{Binding IsBusy}"
                           IsRunning="{Binding IsBusy}"
                           HorizontalOptions="Fill"
